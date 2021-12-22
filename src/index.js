@@ -33,10 +33,10 @@ function verifyIfExistAccountCPF(req, res, next) {
 
 function getBalance(statement) {
   const balance = statement.reduce((acc, operation) => {
-    if (operation.type === 'credito') {
-      return acc - operation.amount;
-    } else {
+    if (operation.type === 'credit') {
       return acc + operation.amount;
+    } else {
+      return acc - operation.amount;
     }
   }, 0); // valor inicial do reduce.
 
@@ -136,6 +136,52 @@ app.post('/api/v1/withdraw', verifyIfExistAccountCPF, (req, res) => {
       name: customer.name,
       type: customer.type,
       amount: amount
+    }
+  });
+});
+
+app.get('/api/v1/statement/date', verifyIfExistAccountCPF, (req, res) => {
+  const { customer } = req;
+  const { date } = req.query;
+
+  const dateFormat = new Date(date + '00:00');
+
+  const statement = customer.statement
+    .filter(statement => statement.create_at.toDateString() === new Date(dateFormat))
+    .toDateString();
+
+  return res.status(200).json({
+    status: 'success',
+    data: {
+      name: customer.name,
+      statement: statement
+    }
+  });
+});
+
+app.put('/api/v1/account', verifyIfExistAccountCPF, (req, res) => {
+  const { customer } = req;
+  const { name } = req.body;
+
+  const oldName = customer.name;
+  customer.name = name;
+
+  return res.status(201).json({
+    status: 'success',
+    data: {
+      oldName: oldName,
+      newName: name
+    }
+  });
+});
+
+app.get('/api/v1/account', verifyIfExistAccountCPF, (req, res) => {
+  const { customer } = req;
+
+  return res.status(200).json({
+    status: 'success',
+    data: {
+      account: customer
     }
   });
 });
