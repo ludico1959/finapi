@@ -46,6 +46,28 @@ app.post('/api/v1/account', (req, res) => {
   });
 });
 
+// statement = extrato bancário
+app.get('/api/v1/statement/:cpf', (req, res) => {
+  const { cpf } = req.params;
+
+  const customer = customers.find(element => element.cpf === cpf);
+
+  if (!customer) {
+    return res.status(404).json({
+      status: 'fail',
+      message: `The following CPF ${cpf} does not exist in our system.`
+    });
+  }
+
+  return res.status(200).json({
+    status: 'success',
+    data: {
+      name: customer.name,
+      statement: customer.statement
+    }
+  });
+});
+
 const port = 3333;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
