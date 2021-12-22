@@ -1,4 +1,4 @@
-# FinApi 🏦🏧💰
+# FinAPI 🏦🏧💰
 
 ### Requisitos
 
