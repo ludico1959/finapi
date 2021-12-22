@@ -14,7 +14,7 @@
 
 ---
 
-## Regras de negócio
+### Regras de negócio
 
 - [x] Não deve ser possível cadastrar uma conta com CPF já exístente.
 - [ ] Não deve ser possível buscar extrato em uma conta não exístente.
