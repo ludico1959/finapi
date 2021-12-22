@@ -1,3 +1,4 @@
+const { request } = require('express');
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 
@@ -65,6 +66,28 @@ app.get('/api/v1/statement/', verifyIfExistAccountCPF, (req, res) => {
   }
 
   return res.status(200).json({
+    status: 'success',
+    data: {
+      name: customer.name,
+      statement: customer.statement
+    }
+  });
+});
+
+app.post('/api/v1/deposit', verifyIfExistAccountCPF, (req, res) => {
+  const { description, amount } = req.body;
+  const { customer } = req;
+
+  const statementOperration = {
+    description: description,
+    amount: amount,
+    create_at: new Date(),
+    type: 'credit'
+  };
+
+  customer.statement.push(statementOperration);
+
+  return res.status(201).json({
     status: 'success',
     data: {
       name: customer.name,
