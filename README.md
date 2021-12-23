@@ -40,7 +40,7 @@ For completing this project, the following requirements and business rules must 
 
 ## 📮 Testing endpoints
 
-You can test the CRUD operation using an API test toll like Postman or Insomnia! Just import the file named is **postman_collection.json**.
+You can test the CRUD operations using an API test toll like Postman or Insomnia! Just import the file named is **postman_collection.json**.
 
 * **Postman**: If you don't have it, just download it [here](https://www.postman.com/downloads/). 
 * **Insomnia**: If you don't have it, just download it [here](https://insomnia.rest/download/).
