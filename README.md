@@ -3,11 +3,11 @@
 FinAPI is a simple API with the four basic CRUD operations and it is about banking operation simulation. 
 The API was built during Ignit Node.JS course from Rocketseat. For more information, click [here](https://www.rocketseat.com.br/ignite).   
 
-## 📜 Checklist
+## 📝 Checklist
 
 For completing this project, the following requirements and business rules must be completed.
 
-### Requirements 
+### ✒ Requirements 
 
 - [x] It must be possible to create an account.
 - [x] It must be possible to fetch the customer's bank statement.
@@ -21,7 +21,7 @@ For completing this project, the following requirements and business rules must 
 
 ---
 
-### Business rules
+### ✒ Business rules
 
 - [x] It must not be possible to register an account with an existing CPF.
 - [x] It must not be possible to fetch a statement from a non-existing account.
@@ -30,6 +30,7 @@ For completing this project, the following requirements and business rules must 
 - [x] It must not be possible to withdraw when the balance is insufficient.
 - [x] It must not be possible to delete a non-existing account.
 
+---
 
 ## 📮 Testing endpoints
 
