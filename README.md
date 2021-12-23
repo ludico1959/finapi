@@ -28,7 +28,15 @@ For completing this project, the following requirements and business rules must 
 - [x] It must not be possible to withdraw when the balance is insufficient.
 - [x] It must not be possible to delete a non-existing account.
 
+## 💾 Resources 
 
+- Node.JS v14.17.6;
+- Node Third Party Modules:
+  - Express.Js v4.17.1,
+  - uuid v8.3.2 version 4 (random),
+  - Nodemon v2.0.14 (devDependencie); 
+- JSON data (for sending and returning data);
+- Postman v8.12.5 (for testing endpoits).
 
 ## 📮 Testing endpoints
 
