@@ -1,7 +1,7 @@
 # FinAPI 🏦🏧💰
 
 FinAPI is a simple API with the four basic CRUD operations and it is about banking operation simulation. 
-The API was built during Ignit Node.JS course from Rocketseat. For more information, click [here](https://www.rocketseat.com.br/ignite).   
+The API was built during Ignit Node.JS course from Rocketseat. For more information, [click here](https://www.rocketseat.com.br/ignite).   
 
 ## 📝 Checklist
 
