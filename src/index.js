@@ -186,6 +186,33 @@ app.get('/api/v1/account', verifyIfExistAccountCPF, (req, res) => {
   });
 });
 
+app.delete('/api/v1/account', verifyIfExistAccountCPF, (req, res) => {
+  const { customer } = req;
+
+  customers.splice(customer, 1);
+
+  return res.status(200).json({
+    status: 'success',
+    data: {
+      removedCustomer: customer,
+      remainCustomers: customers
+    }
+  });
+});
+
+app.get('/api/v1/balance', verifyIfExistAccountCPF, (req, res) => {
+  const { customer } = req;
+
+  const balance = getBalance(customer.statement);
+
+  return res.status(200).json({
+    status: 'sucess',
+    data: {
+      balance: balance
+    }
+  });
+});
+
 const port = 3333;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
