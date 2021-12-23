@@ -19,8 +19,6 @@ For completing this project, the following requirements and business rules must 
 - [x] It must be possible to delete an account.
 - [x] It must be possible to return the balance.
 
----
-
 ### ✒ Business rules
 
 - [x] It must not be possible to register an account with an existing CPF.
@@ -30,7 +28,6 @@ For completing this project, the following requirements and business rules must 
 - [x] It must not be possible to withdraw when the balance is insufficient.
 - [x] It must not be possible to delete a non-existing account.
 
----
 
 ## 📮 Testing endpoints
 
