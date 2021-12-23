@@ -7,7 +7,7 @@ The API was built during Ignit Node.JS course from Rocketseat. For more informat
 
 For completing this project, the following requirements and business rules must be completed.
 
-### ✒ Requirements 
+### Requirements 
 
 - [x] It must be possible to create an account.
 - [x] It must be possible to fetch the customer's bank statement.
@@ -19,7 +19,7 @@ For completing this project, the following requirements and business rules must 
 - [x] It must be possible to delete an account.
 - [x] It must be possible to return the balance.
 
-### ✒ Business rules
+### Business rules
 
 - [x] It must not be possible to register an account with an existing CPF.
 - [x] It must not be possible to fetch a statement from a non-existing account.
