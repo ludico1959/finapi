@@ -2,14 +2,17 @@
   "name": "rocketseat-ignite",
   "version": "1.0.0",
   "description": "studying node.js",
-  "main": "src/index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "start:dev": "nodemon server.js",
+    "start:prod": "process.env.NODE_ENV = 'production' nodemon server.js"
   },
   "author": "Lucas Dias Coelho",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "morgan": "^1.10.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

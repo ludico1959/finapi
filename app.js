@@ -1,15 +1,22 @@
-const { request } = require('express');
 const express = require('express');
+const morgan = require('morgan');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 
-/**
- * Middleware para ler arquivos JSON no body params.
- * os middlewares dentro de app.use() são chamados antes de todas as rotas.
- */
+////////////////////////////////////////////////////
+/// MIDDLEWARES:
+
+// os middlewares dentro de app.use() são chamados antes de todas as rotas.
 app.use(express.json());
-// app.use(verifyIfExistAccountCPF);
+
+app.use((req, res, next) => {
+  console.log('A request just reached the server 📬\nDetails below: 📧');
+
+  next();
+});
+
+if (process.env.NODE_ENV === 'development') app.use(morgan(dev));
 
 const customers = [];
 
@@ -213,7 +220,4 @@ app.get('/api/v1/balance', verifyIfExistAccountCPF, (req, res) => {
   });
 });
 
-const port = 3333;
-app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
-});
+module.exports = app;
