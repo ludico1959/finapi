@@ -16,7 +16,7 @@ exports.createAccount = async (req, res) => {
   } catch (error) {
     return res.status(400).json({
       status: 'fail',
-      message: `🚫 Bad request`
+      message: `🚫 ERROR: ${error}`
     });
   }
 };
@@ -35,7 +35,7 @@ exports.getAllAccounts = async (req, res) => {
   } catch (error) {
     return res.status(404).json({
       status: 'fail',
-      message: `🚫 Accounts not found`
+      message: `🚫 ERROR: ${error}`
     });
   }
 };
@@ -53,7 +53,7 @@ exports.getAccount = async (req, res) => {
   } catch (error) {
     return res.status(404).json({
       status: 'fail',
-      message: `🚫 Account with ID ${req.params.id} not found`
+      message: `🚫 ERROR: ${error}`
     });
   }
 };
@@ -74,7 +74,7 @@ exports.updateAccount = async (req, res) => {
   } catch (error) {
     return res.status(404).json({
       status: 'fail',
-      message: `🚫 Account with ID ${req.params.id} not found`
+      message: `🚫 ERROR: ${error}`
     });
   }
 };
@@ -90,7 +90,7 @@ exports.deleteAccount = async (req, res) => {
   } catch (error) {
     return res.status(404).json({
       status: 'fail',
-      message: `🚫 Account with ID ${req.params.id} not found`
+      message: `🚫 ERROR: ${error}`
     });
   }
 };

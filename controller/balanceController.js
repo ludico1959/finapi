@@ -16,7 +16,7 @@ exports.getBalance = async (req, res) => {
   } catch {
     return res.status(404).json({
       status: 'fail',
-      message: `🚫 Account with ID ${req.params.id} not found`
+      message: `🚫 ERROR: ${error}`
     });
   }
 };

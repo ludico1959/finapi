@@ -19,7 +19,17 @@ const accountSchema = mongoose.Schema({
     type: Number,
     default: 0
   },
-  statement: [String]
+  statement: [
+    {
+      operation: {
+        type: String,
+        required: true
+      },
+      date: {
+        type: Date
+      }
+    }
+  ]
 });
 
 ////////////////////////////////////////////////////

@@ -27,7 +27,7 @@ exports.createDeposit = async (req, res) => {
   } catch (error) {
     return res.status(404).json({
       status: 'fail',
-      message: `🚫 Account with ID ${req.params.id} not found`
+      message: `🚫 ERROR: ${error}`
     });
   }
 };
