@@ -1,33 +1,33 @@
+const Account = require('../models/accountModel');
+
 ////////////////////////////////////////////////////
 /// ROUTES HANDLERS:
 
-exports.createWithdraw = (req, res) => {
-  const { customer } = req;
-  const { amount } = req.body;
+exports.createWithdrawal = async (req, res) => {
+  try {
+    const { withdrawal } = await req.body;
+    const account = await Account.findById(req.params.id);
+    const newAmount = await (account.amount - withdrawal);
 
-  const balance = getBalance(customer.statement);
+    const updatedAccount = await Account.findByIdAndUpdate(
+      req.params.id,
+      { amount: newAmount },
+      {
+        new: true,
+        runValidators: true
+      }
+    );
 
-  if (balance < amount) {
-    return res.status(400).json({
-      status: 'error',
-      message: `Balance: $ ${balance}. Insuficient funds!`
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        updatedAccount: updatedAccount
+      }
+    });
+  } catch (error) {
+    return res.status(404).json({
+      status: 'fail',
+      message: `🚫 Account with ID ${req.params.id} not found`
     });
   }
-
-  const statementOperration = {
-    amount: amount,
-    create_at: new Date(),
-    type: 'debit'
-  };
-
-  customer.statement.push(statementOperration);
-
-  return res.status(201).json({
-    status: 'success',
-    data: {
-      name: customer.name,
-      type: customer.type,
-      amount: amount
-    }
-  });
 };

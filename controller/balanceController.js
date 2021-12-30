@@ -1,27 +1,22 @@
+const Account = require('../models/accountModel');
+
 ////////////////////////////////////////////////////
 /// ROUTES HANDLERS:
 
-exports.getBalance = (req, res) => {
-  function getBalance(statement) {
-    const balance = statement.reduce((acc, operation) => {
-      if (operation.type === 'credit') {
-        return acc + operation.amount;
-      } else {
-        return acc - operation.amount;
+exports.getBalance = async (req, res) => {
+  try {
+    const account = await Account.findOne({ cpf: req.headers.cpf });
+
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        balance: account.amount
       }
-    }, 0); // valor inicial do reduce.
-
-    return balance;
+    });
+  } catch {
+    return res.status(404).json({
+      status: 'fail',
+      message: `🚫 Account with ID ${req.params.id} not found`
+    });
   }
-
-  const { customer } = req;
-
-  const balance = getBalance(customer.statement);
-
-  return res.status(200).json({
-    status: 'sucess',
-    data: {
-      balance: balance
-    }
-  });
 };
