@@ -13,11 +13,13 @@ For completing this project, the following requirements and business rules must 
 - [x] It must be possible to fetch the customer's bank statement.
 - [x] It must be possible to make a deposit.
 - [x] It must be possible to make a withdrawal.
-- [x] It must be possible to search the customer's bank statement by date.
+- [ ] It must be possible to search the customer's bank statement by date.**
 - [x] It must be possible to update customer account data.
 - [x] It must be possible to obtain customer account data.
 - [x] It must be possible to delete an account.
 - [x] It must be possible to return the balance.
+
+** This requirement was not concluded in FinAPI version 2.
 
 ### Business rules
 
@@ -33,14 +35,19 @@ For completing this project, the following requirements and business rules must 
 - Node.JS v14.17.6;
 - Node Third Party Modules:
   - Express.Js v4.17.1,
-  - uuid v8.3.2 version 4 (random),
+  - uuid v8.3.2 version 4 (random)**,
+  - dotenv v10.0.0,
+  - mongoose v6.1.4,
+  - morgan v1.10.0, 
   - Nodemon v2.0.14 (devDependencie); 
 - JSON data (for sending and returning data);
 - Postman v8.12.5 (for testing endpoits).
 
+** uuid module was used in FinAPI version 1 which does not had connction to a database. Because of that, we had to generate our own id with this module.
+
 ## 📮 Testing endpoints
 
-You can test the CRUD operations using an API test toll like Postman or Insomnia! Just import the file named is **postman_collection.json**.
+You can test the CRUD operations using an API test toll like Postman or Insomnia! Just import the file named is **FinAPI.postman_collection.json**.
 
 * **Postman**: If you don't have it, just download it [here](https://www.postman.com/downloads/). 
 * **Insomnia**: If you don't have it, just download it [here](https://insomnia.rest/download/).
