@@ -15,6 +15,10 @@ const accountSchema = mongoose.Schema({
     trim: true,
     required: true
   },
+  amount: {
+    type: Number,
+    default: 0
+  },
   statement: [String]
 });
 

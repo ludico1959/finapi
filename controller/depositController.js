@@ -1,24 +1,33 @@
+const Account = require('../models/accountModel');
+
 ////////////////////////////////////////////////////
 /// ROUTES HANDLERS:
 
-exports.createDeposit = (req, res) => {
-  const { description, amount } = req.body;
-  const { customer } = req;
+exports.createDeposit = async (req, res) => {
+  try {
+    const { deposit } = await req.body;
+    const account = await Account.findById(req.params.id);
+    const newAmount = await (account.amount + deposit);
 
-  const statementOperration = {
-    description: description,
-    amount: amount,
-    create_at: new Date(),
-    type: 'credit'
-  };
+    const updatedAccount = await Account.findByIdAndUpdate(
+      req.params.id,
+      { amount: newAmount },
+      {
+        new: true,
+        runValidators: true
+      }
+    );
 
-  customer.statement.push(statementOperration);
-
-  return res.status(201).json({
-    status: 'success',
-    data: {
-      name: customer.name,
-      statement: customer.statement
-    }
-  });
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        updatedAccount: updatedAccount
+      }
+    });
+  } catch (error) {
+    return res.status(404).json({
+      status: 'fail',
+      message: `🚫 Account with ID ${req.params.id} not found`
+    });
+  }
 };
