@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "c24dd4fd-2bb7-4c23-a024-698d2462a474",
+		"name": "FinAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Otaviano Ferreira de Matos\",\r\n    \"cpf\": \"772.292.320-82\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/v2/account",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v2",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "cpf",
+								"value": "772.292.320-82",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3333/api/v2/account/",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v2",
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all accounts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/api/v2/account",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v2",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "cpf",
+								"value": "772.292.320-82",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3333/api/v1/account/",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "cpf",
+								"value": "772.292.320-82",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lucas Dias Coelho\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/v1/account/",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Depósito de teste\",\r\n    \"amount\": 1500.46\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/v1/deposit",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statement",
+			"item": [
+				{
+					"name": "Get statement",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "cpf",
+								"value": "772.292.320-82",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3333/api/v2/statement/61cd16142f55da0c970e33f0",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v2",
+								"statement",
+								"61cd16142f55da0c970e33f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get statement by date",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "cpf",
+								"value": "772.292.320-82",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3333/api/v1/statement/?date=10/10/2022",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"api",
+								"v1",
+								"statement",
+								""
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "10/10/2022"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get balance by CPF",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cpf",
+						"value": "772.292.320-82",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3333/api/v2/balance/",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"v2",
+						"balance",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make withdrawal",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "cpf",
+						"value": "772.292.320-82",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"withdrawal\": 35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/api/v2/withdraw/61cd16142f55da0c970e33f0",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"v2",
+						"withdraw",
+						"61cd16142f55da0c970e33f0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make deposit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deposit\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/api/v2/deposit/61cd16142f55da0c970e33f0",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"v2",
+						"deposit",
+						"61cd16142f55da0c970e33f0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
