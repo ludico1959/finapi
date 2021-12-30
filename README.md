@@ -13,11 +13,12 @@ For completing this project, the following requirements and business rules must 
 - [x] It must be possible to fetch the customer's bank statement.
 - [x] It must be possible to make a deposit.
 - [x] It must be possible to make a withdrawal.
-- [ ] It must be possible to search the customer's bank statement by date.*
+- [ ] It must be possible to search the customer's bank statement by date.**
 - [x] It must be possible to update customer account data.
 - [x] It must be possible to obtain customer account data.
 - [x] It must be possible to delete an account.
 - [x] It must be possible to return the balance.
+
 * This requirement was not concluded in FinAPI version 2.
 
 ### Business rules
@@ -41,6 +42,7 @@ For completing this project, the following requirements and business rules must 
   - Nodemon v2.0.14 (devDependencie); 
 - JSON data (for sending and returning data);
 - Postman v8.12.5 (for testing endpoits).
+
 ** uuid module was used in FinAPI version 1 which does not had connction to a database. Because of that, we had to generate our own id with this module.
 
 ## 📮 Testing endpoints
