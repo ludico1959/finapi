@@ -19,7 +19,7 @@ For completing this project, the following requirements and business rules must 
 - [x] It must be possible to delete an account.
 - [x] It must be possible to return the balance.
 
-* This requirement was not concluded in FinAPI version 2.
+** This requirement was not concluded in FinAPI version 2.
 
 ### Business rules
 
