@@ -1,7 +1,12 @@
 # FinAPI 🏦🏧💰
 
-FinAPI is a simple API with the four basic CRUD operations and it is about banking operation simulation. 
-The API was built during Ignit Node.JS course from Rocketseat. For more information, [click here](https://www.rocketseat.com.br/ignite).   
+FinAPI is a simple API with the four basic CRUD operations and it is about banking operation simulation, where you can create an account, make deposits and withdrawals and see the client's statement and balance. 
+The API was built during Ignit Node.JS course from Rocketseat. For more information, [click here](https://www.rocketseat.com.br/ignite). 
+After some point, I updated it to use a MongoDB database and implemented the MVC (Model-View-Controller) architecture.
+
+The Model–view–controller (MVC) is a software design pattern commonly used for developing user interfaces that divide the related program logic into three interconnected elements. This is done to separate internal representations of information from the ways information is presented to and accepted from the user.
+
+The main goal of this project was to learn about Node.JS completing the following checklist below. 
 
 ## 📝 Checklist
 
