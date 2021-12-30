@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const depositController = require('../controller/depositController');
-const statementController = require('../controller/statementController');
+const addStatement = require('../middleware/addStatement');
 
-router.route('/:id').patch(statementController.addStatement, depositController.createDeposit);
+router.route('/:id').patch(addStatement.addStatement, depositController.createDeposit);
 
 module.exports = router;
