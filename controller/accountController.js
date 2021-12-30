@@ -1,66 +1,96 @@
+const Account = require('../models/accountModel');
+
 ////////////////////////////////////////////////////
 /// ROUTES HANDLERS:
 
-exports.createAccount = (req, res) => {
-  const { cpf, name } = req.body;
-  const id = uuidv4();
+exports.createAccount = async (req, res) => {
+  try {
+    const newAccount = await Account.create(req.body);
 
-  customers.push({
-    id: id,
-    cpf: cpf,
-    name: name,
-    statement: []
-  });
-
-  return res.status(201).json({
-    status: 'success',
-    data: {
-      account: {
-        id: id,
-        cpf: cpf,
-        name: name
+    return res.status(201).json({
+      status: 'success',
+      data: {
+        newAccount: newAccount
       }
-    }
-  });
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: 'fail',
+      message: `🚫 Bad request`
+    });
+  }
 };
 
-exports.getAccount = (req, res) => {
-  const { customer } = req;
+exports.getAllAccounts = async (req, res) => {
+  try {
+    const accounts = await Account.find();
 
-  return res.status(200).json({
-    status: 'success',
-    data: {
-      account: customer
-    }
-  });
+    return res.status(200).json({
+      status: 'success',
+      results: accounts.length,
+      data: {
+        accounts: accounts
+      }
+    });
+  } catch (error) {
+    return res.status(404).json({
+      status: 'fail',
+      message: `🚫 Accounts not found`
+    });
+  }
 };
 
-exports.updateAccount = (req, res) => {
-  const { customer } = req;
-  const { name } = req.body;
+exports.getAccount = async (req, res) => {
+  try {
+    const account = await Account.findById(req.params.id);
 
-  const oldName = customer.name;
-  customer.name = name;
-
-  return res.status(201).json({
-    status: 'success',
-    data: {
-      oldName: oldName,
-      newName: name
-    }
-  });
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        account: account
+      }
+    });
+  } catch (error) {
+    return res.status(404).json({
+      status: 'fail',
+      message: `🚫 Account with ID ${req.params.id} not found`
+    });
+  }
 };
 
-exports.deleteAccount = (req, res) => {
-  const { customer } = req;
+exports.updateAccount = async (req, res) => {
+  try {
+    const modifiedAccount = await Account.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
 
-  customers.splice(customer, 1);
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        modifiedAccount: modifiedAccount
+      }
+    });
+  } catch (error) {
+    return res.status(404).json({
+      status: 'fail',
+      message: `🚫 Account with ID ${req.params.id} not found`
+    });
+  }
+};
 
-  return res.status(200).json({
-    status: 'success',
-    data: {
-      removedCustomer: customer,
-      remainCustomers: customers
-    }
-  });
+exports.deleteAccount = async (req, res) => {
+  try {
+    await Account.findByIdAndDelete(req.params.id);
+
+    return res.status(204).json({
+      status: 'success',
+      data: null
+    });
+  } catch (error) {
+    return res.status(404).json({
+      status: 'fail',
+      message: `🚫 Account with ID ${req.params.id} not found`
+    });
+  }
 };

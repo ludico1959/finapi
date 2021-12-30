@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const accountController = require('../controller/accountController');
 
-router.route('/').post(accountController.createAccount);
+router.route('/').get(accountController.getAllAccounts).post(accountController.createAccount);
 
 router
   .route('/:id')
