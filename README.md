@@ -50,7 +50,7 @@ For completing this project, the following requirements and business rules must 
 
 ** uuid module was used in FinAPI version 1 which does not had connection to a database. Because of that, we had to generate our own id with this module.
 
-## 📮 Testing endpoints
+## 🚀 Test
 
 You can test the CRUD operations using an API test tool like Postman or Insomnia! Just import the file named is **FinAPI.postman_collection.json**.
 
