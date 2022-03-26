@@ -1,4 +1,4 @@
-# FinAPI V2 (real database) 🏦🏧💰
+# FinAPI v2 (real database) 🏦🏧💰
 
 FinAPI is a simple API with the four basic CRUD operations and it is about banking operation simulation, where you can create an account, make deposits and withdrawals and see the client's statement and balance. 
 The API was built during Ignit Node.JS course from Rocketseat. For more information, [click here](https://www.rocketseat.com.br/ignite). 
